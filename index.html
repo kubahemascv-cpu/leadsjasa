@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Leads Jasa — Input</title>
+<meta name="theme-color" content="#FFC72C">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Leads Jasa">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-512.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --yl:#FFC72C;--yl-d:#B98700;--yl-l:#FFF6D6;--yl-b:#FFE083;
+  --ch:#1F2128;--bg:#F6F6F3;--bg2:#EEEEE9;--card:#fff;--card2:#FAFAF8;
+  --txt:#1F2128;--txt2:#41454F;--mut:#80848F;--bdr:#E9E8E2;
+  --grn:#16A34A;--grn-l:#F1FBF4;--red:#DC2626;--red-l:#FEF3F2;
+  --shd:0 1px 2px rgba(31,33,40,.04),0 6px 20px rgba(31,33,40,.05);
+  --font:'Plus Jakarta Sans',-apple-system,sans-serif;--r:18px;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--txt);min-height:100vh;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;padding-bottom:110px}
+.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr);padding:12px 18px 10px;padding-top:max(12px,env(safe-area-inset-top))}
+.brand{display:flex;align-items:center;gap:12px;max-width:720px;margin:0 auto}
+.logo{width:40px;height:40px;border-radius:12px;background:var(--yl);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;box-shadow:0 4px 12px rgba(255,199,44,.45)}
+.bn{font-size:15px;font-weight:800;letter-spacing:-.01em}.bs{font-size:11px;color:var(--mut)}
+.pic{margin-left:auto;font-size:11px;font-weight:700;background:var(--ch);color:var(--yl);padding:7px 13px;border-radius:999px}
+.wrap{max-width:720px;margin:0 auto;padding:18px}
+.tabs{display:flex;gap:4px;padding:4px;background:var(--bg2);border-radius:999px;margin-bottom:18px}
+.tab{flex:1;border:none;background:none;font-family:var(--font);font-size:12.5px;font-weight:700;color:var(--mut);padding:10px;border-radius:999px;cursor:pointer;transition:all .18s}
+.tab.on{background:var(--ch);color:var(--yl);box-shadow:0 2px 8px rgba(31,33,40,.22)}
+.card{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);box-shadow:var(--shd);padding:18px;margin-bottom:14px}
+.lbl{display:block;font-size:11px;font-weight:700;color:var(--mut);margin-bottom:7px}
+.inp,.sel{width:100%;height:46px;border:1.5px solid var(--bdr);border-radius:13px;background:var(--card2);padding:0 14px;font-family:var(--font);font-size:14px;font-weight:600;color:var(--txt);outline:none;transition:border-color .15s}
+.inp:focus,.sel:focus{border-color:var(--yl);background:#fff}
+.sel{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%2380848F' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.sel.empty{color:var(--mut);font-weight:500}
+.sel.err{border-color:var(--red);background:var(--red-l)}
+.sec-h{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.sec-h::before{content:"";width:4px;height:18px;border-radius:2px;background:var(--yl)}
+.sec-t{font-size:14px;font-weight:800}.sec-s{font-size:11px;color:var(--mut);margin-left:auto}
+.stepper{display:flex;align-items:center;gap:10px}
+.stp{width:46px;height:46px;border-radius:13px;border:1.5px solid var(--bdr);background:var(--card);font-size:22px;font-weight:700;color:var(--txt);cursor:pointer;font-family:var(--font)}
+.stp:active{background:var(--yl-l);border-color:var(--yl)}
+.num{flex:1;text-align:center;font-size:20px;font-weight:800}
+.rows{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.row{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center}
+.rn{width:34px;height:34px;border-radius:10px;background:var(--yl-l);color:var(--yl-d);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.rc{display:flex;flex-direction:column;gap:5px}
+.chip{align-self:flex-start;font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--bg2);color:var(--txt2)}
+.chip.Consideration{background:var(--yl-l);color:var(--yl-d)}
+.chip.Awareness{background:#EEF1F6;color:#4A5160}
+.chip.NoTarget{background:#F3EDED;color:#8A5252}
+.empty-note{font-size:12px;color:var(--mut);text-align:center;padding:6px 0 2px}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--bdr);padding:12px 18px;padding-bottom:max(12px,env(safe-area-inset-bottom))}
+.bar-in{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:14px}
+.sum{font-size:12px;color:var(--txt2);line-height:1.4}.sum b{font-size:15px;color:var(--txt)}
+.btn{margin-left:auto;height:48px;padding:0 26px;border:none;border-radius:999px;background:var(--ch);color:var(--yl);font-family:var(--font);font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 4px 14px rgba(31,33,40,.25);transition:opacity .15s}
+.btn:disabled{opacity:.4;cursor:not-allowed;box-shadow:none}
+.banner{border-radius:14px;padding:11px 15px;font-size:12px;line-height:1.55;margin-bottom:14px;display:none}
+.banner.show{display:block}
+.banner.warn{background:var(--yl-l);border:1px solid var(--yl-b);color:#7A5C00}
+.banner.bad{background:var(--red-l);border:1px solid #FECACA;color:var(--red)}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);background:var(--ch);color:#fff;padding:12px 20px;border-radius:999px;font-size:12.5px;font-weight:600;opacity:0;pointer-events:none;transition:all .25s;z-index:100;max-width:90%;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.ok{background:var(--grn)}.toast.bad{background:var(--red)}
+/* riwayat */
+.hist-sum{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.mini{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shd)}
+.mini.hero{background:var(--ch);border:none}.mini.hero .ml{color:rgba(255,255,255,.6)}.mini.hero .mv{color:var(--yl)}
+.ml{font-size:11px;font-weight:600;color:var(--mut)}.mv{font-size:26px;font-weight:800;letter-spacing:-.02em;margin-top:2px}
+.batch{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);box-shadow:var(--shd);padding:15px 16px;margin-bottom:12px}
+.bh{display:flex;align-items:center;gap:10px}
+.bt{font-size:13px;font-weight:800}.bm{font-size:11px;color:var(--mut)}
+.del{margin-left:auto;border:1.5px solid #FECACA;background:var(--red-l);color:var(--red);font-family:var(--font);font-size:11.5px;font-weight:700;border-radius:999px;padding:7px 14px;cursor:pointer}
+.bl{margin-top:11px;display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--bg2);color:var(--txt2)}
+.tag b{color:var(--txt)}
+.tag.dk{background:var(--yl-l);color:var(--yl-d)}
+.spin{display:inline-block;width:16px;height:16px;border:2px solid var(--bdr);border-top-color:var(--yl);border-radius:50%;animation:sp .7s linear infinite;vertical-align:middle;margin-right:8px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.hide{display:none!important}
+</style>
+</head>
+<body>
+<header class="top"><div class="brand">
+  <div class="logo">LJ</div>
+  <div><div class="bn">Leads Jasa</div><div class="bs">Catat leads harian</div></div>
+  <div class="pic">PIC · Faizal</div>
+</div></header>
+
+<div class="wrap">
+  <div class="tabs">
+    <button class="tab on" id="tab-input" onclick="showTab('input')">✍️ Input</button>
+    <button class="tab" id="tab-riwayat" onclick="showTab('riwayat')">🗂️ Riwayat</button>
+  </div>
+  <div class="banner" id="banner"></div>
+
+  <!-- INPUT -->
+  <div id="pg-input">
+    <div class="card">
+      <label class="lbl" for="f-tgl">Tanggal</label>
+      <input class="inp" type="date" id="f-tgl">
+    </div>
+
+    <div class="card">
+      <div class="sec-h"><div class="sec-t">Leads Dengan Kode</div><div class="sec-s">kode dari LP</div></div>
+      <div class="stepper">
+        <button class="stp" onclick="step('dk',-1)" aria-label="Kurangi">−</button>
+        <input class="inp num" id="n-dk" type="number" inputmode="numeric" min="0" max="99" value="0" oninput="setCount('dk',this.value)">
+        <button class="stp" onclick="step('dk',1)" aria-label="Tambah">+</button>
+      </div>
+      <div class="rows" id="rows-dk"></div>
+    </div>
+
+    <div class="card">
+      <div class="sec-h"><div class="sec-t">Leads Tanpa Kode</div><div class="sec-s">tanpa kode LP</div></div>
+      <div class="stepper">
+        <button class="stp" onclick="step('tk',-1)" aria-label="Kurangi">−</button>
+        <input class="inp num" id="n-tk" type="number" inputmode="numeric" min="0" max="99" value="0" oninput="setCount('tk',this.value)">
+        <button class="stp" onclick="step('tk',1)" aria-label="Tambah">+</button>
+      </div>
+      <div class="rows" id="rows-tk"></div>
+    </div>
+  </div>
+
+  <!-- RIWAYAT -->
+  <div id="pg-riwayat" class="hide">
+    <div class="card">
+      <label class="lbl" for="h-tgl">Tanggal riwayat</label>
+      <input class="inp" type="date" id="h-tgl" onchange="loadHist()">
+    </div>
+    <div id="hist"></div>
+  </div>
+</div>
+
+<div class="bar" id="bar"><div class="bar-in">
+  <div class="sum" id="sum">Total <b>0</b> leads</div>
+  <button class="btn" id="btn-save" onclick="save()" disabled>Simpan</button>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+// ── CONFIG ── isi setelah Apps Script di-deploy ──────────
+var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxSbswMK8dkhfj1nzq_huVEAr_igLsCkzQcxHmkPw2mqoxCaXnc_msRyuz1axWDBQQMJQ/exec';
+var TOKEN = 'leadsjasa';           // harus SAMA dengan TOKEN di Apps Script
+var PIC = 'Faizal';
+
+// ── DAFTAR STATUS (urut sesuai lampiran) ─────────────────
+var FUNNEL = [
+  {tahap:'Consideration', key:'Consideration', statuses:['Tahap Hitung','Timing Belum Pas','Dirundingkan','Closing Survey']},
+  {tahap:'Awareness',     key:'Awareness',     statuses:['Tahap Dana','Tidak Respon','Respon','Menunggu Kabar']},
+  {tahap:'No Target',     key:'NoTarget',      statuses:['No Target']}
+];
+var KAT = {dk:'Dengan Kode', tk:'Tanpa Kode'};
+function tahapOf(status){
+  for(var i=0;i<FUNNEL.length;i++) if(FUNNEL[i].statuses.indexOf(status)>=0) return FUNNEL[i];
+  return null;
+}
+
+// ── STATE ────────────────────────────────────────────────
+var S={dk:[],tk:[]};
+var SAVING=false, SHOW_ERR=false;
+var DRAFT_KEY='leadsjasa_draft_v1';
+
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function todayStr(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function lsGet(k){try{return JSON.parse(localStorage.getItem(k));}catch(e){return null;}}
+function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+function lsDel(k){try{localStorage.removeItem(k);}catch(e){}}
+
+function toast(msg,type){
+  var t=$('toast');t.textContent=msg;t.className='toast show '+(type||'');
+  clearTimeout(toast._t);toast._t=setTimeout(function(){t.className='toast';},2800);
+}
+function banner(msg,type){
+  var b=$('banner');
+  if(!msg){b.className='banner';b.textContent='';return;}
+  b.className='banner show '+(type||'warn');b.textContent=msg;
+}
+
+// ── FORM ─────────────────────────────────────────────────
+function setCount(k,v){
+  var n=parseInt(v,10); if(isNaN(n)||n<0)n=0; if(n>99)n=99;
+  while(S[k].length<n) S[k].push('');
+  S[k].length=n;
+  renderRows(k); updateBar(); saveDraft();
+}
+function step(k,d){
+  var n=S[k].length+d; if(n<0||n>99)return;
+  $('n-'+k).value=n; setCount(k,n);
+}
+function renderRows(k){
+  var box=$('rows-'+k);
+  if(!S[k].length){box.innerHTML='';return;}
+  var opts='<option value="">Pilih Label Status…</option>'+FUNNEL.map(function(f){
+    return '<optgroup label="'+esc(f.tahap)+'">'+f.statuses.map(function(s){return '<option value="'+esc(s)+'">'+esc(s)+'</option>';}).join('')+'</optgroup>';
+  }).join('');
+  box.innerHTML=S[k].map(function(v,i){
+    var f=v?tahapOf(v):null;
+    return '<div class="row"><div class="rn">'+(i+1)+'</div><div class="rc">'
+      +'<select class="sel'+(v?'':' empty')+((SHOW_ERR&&!v)?' err':'')+'" data-k="'+k+'" data-i="'+i+'" onchange="pick(this)">'+opts.replace('value="'+esc(v)+'"','value="'+esc(v)+'" selected')+'</select>'
+      +(f?'<span class="chip '+f.key+'">Tahap: '+esc(f.tahap)+'</span>':'')
+      +'</div></div>';
+  }).join('');
+}
+function pick(el){
+  var k=el.getAttribute('data-k'), i=+el.getAttribute('data-i');
+  S[k][i]=el.value; renderRows(k); updateBar(); saveDraft();
+}
+function totals(){
+  var tot=S.dk.length+S.tk.length;
+  var miss=S.dk.concat(S.tk).filter(function(v){return !v;}).length;
+  return {tot:tot,miss:miss};
+}
+function updateBar(){
+  var t=totals();
+  $('sum').innerHTML='Total <b>'+t.tot+'</b> leads'+(t.miss?'<br><span style="color:var(--red)">'+t.miss+' belum dipilih statusnya</span>':(t.tot?'<br>Semua status terisi ✓':''));
+  $('btn-save').disabled=SAVING||t.tot===0;
+  $('btn-save').textContent=SAVING?'Menyimpan…':'Simpan';
+}
+function saveDraft(){ lsSet(DRAFT_KEY,{dk:S.dk,tk:S.tk,tgl:$('f-tgl').value}); }
+function restoreDraft(){
+  var d=lsGet(DRAFT_KEY);
+  if(d&&d.dk&&d.tk){S.dk=d.dk.slice(0,99);S.tk=d.tk.slice(0,99);}
+  $('n-dk').value=S.dk.length;$('n-tk').value=S.tk.length;
+  renderRows('dk');renderRows('tk');updateBar();
+}
+
+// ── KIRIM KE APPS SCRIPT ─────────────────────────────────
+function api(payload){
+  if(!APPS_SCRIPT_URL) return Promise.reject(new Error('URL Apps Script belum diisi di app.'));
+  return fetch(APPS_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(Object.assign({token:TOKEN},payload))})
+    .then(function(r){return r.json();})
+    .then(function(j){if(!j.ok)throw new Error(j.error||'Gagal');return j;});
+}
+function save(){
+  if(SAVING)return;
+  var t=totals();
+  if(!t.tot)return;
+  if(t.miss){SHOW_ERR=true;renderRows('dk');renderRows('tk');toast('Pilih status untuk semua lead dulu','bad');return;}
+  var tgl=$('f-tgl').value;
+  if(!tgl){toast('Tanggal belum diisi','bad');return;}
+  var rows=[];
+  S.dk.forEach(function(s){rows.push({kategori:KAT.dk,status:s});});
+  S.tk.forEach(function(s){rows.push({kategori:KAT.tk,status:s});});
+  var batch='b'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+  SAVING=true;updateBar();
+  api({action:'save',batch:batch,tanggal:tgl,pic:PIC,rows:rows}).then(function(){
+    S={dk:[],tk:[]};SHOW_ERR=false;lsDel(DRAFT_KEY);
+    $('n-dk').value=0;$('n-tk').value=0;renderRows('dk');renderRows('tk');
+    toast('✅ '+rows.length+' leads tersimpan','ok');
+  }).catch(function(e){
+    toast('Gagal simpan: '+e.message,'bad');
+  }).then(function(){SAVING=false;updateBar();});
+}
+
+// ── RIWAYAT ──────────────────────────────────────────────
+function showTab(n){
+  $('pg-input').classList.toggle('hide',n!=='input');
+  $('pg-riwayat').classList.toggle('hide',n!=='riwayat');
+  $('bar').classList.toggle('hide',n!=='input');
+  $('tab-input').classList.toggle('on',n==='input');
+  $('tab-riwayat').classList.toggle('on',n==='riwayat');
+  if(n==='riwayat'){ if(!$('h-tgl').value)$('h-tgl').value=$('f-tgl').value||todayStr(); loadHist(); }
+  window.scrollTo(0,0);
+}
+function loadHist(){
+  var box=$('hist'), tgl=$('h-tgl').value;
+  if(!tgl){box.innerHTML='';return;}
+  box.innerHTML='<div class="empty-note"><span class="spin"></span>Memuat…</div>';
+  var req=APPS_SCRIPT_URL?fetch(APPS_SCRIPT_URL+'?action=list&token='+encodeURIComponent(TOKEN)+'&tanggal='+encodeURIComponent(tgl)).then(function(r){return r.json();}):Promise.reject(new Error('URL Apps Script belum diisi di app.'));
+  req.then(function(j){
+    if(!j.ok)throw new Error(j.error||'Gagal');
+    renderHist(j.batches||[]);
+  }).catch(function(e){box.innerHTML='<div class="banner bad show">Gagal memuat riwayat: '+esc(e.message)+'</div>';});
+}
+function renderHist(batches){
+  var box=$('hist');
+  var dk=0,tk=0;
+  batches.forEach(function(b){b.rows.forEach(function(r){if(r.kategori===KAT.dk)dk++;else tk++;});});
+  var h='<div class="hist-sum"><div class="mini hero"><div class="ml">Total leads</div><div class="mv">'+(dk+tk)+'</div></div>'
+       +'<div class="mini"><div class="ml">Dengan Kode / Tanpa Kode</div><div class="mv">'+dk+' / '+tk+'</div></div></div>';
+  if(!batches.length){box.innerHTML=h+'<div class="empty-note">Belum ada input di tanggal ini.</div>';return;}
+  h+=batches.map(function(b){
+    var dkc=b.rows.filter(function(r){return r.kategori===KAT.dk;}).length, tkc=b.rows.length-dkc;
+    function tally(kat){
+      var m={};b.rows.forEach(function(r){if(r.kategori===kat)m[r.status]=(m[r.status]||0)+1;});
+      return Object.keys(m).map(function(s){return '<span class="tag'+(kat===KAT.dk?' dk':'')+'">'+esc(kat==='Dengan Kode'?'DK':'TK')+' · '+esc(s)+' <b>'+m[s]+'</b></span>';}).join('');
+    }
+    return '<div class="batch"><div class="bh"><div><div class="bt">'+esc(b.jam||'')+' · '+b.rows.length+' leads</div><div class="bm">Dengan Kode '+dkc+' · Tanpa Kode '+tkc+' · '+esc(b.pic||'')+'</div></div>'
+      +'<button class="del" onclick="delBatch(\''+esc(b.batch)+'\')">Hapus</button></div>'
+      +'<div class="bl">'+tally(KAT.dk)+tally(KAT.tk)+'</div></div>';
+  }).join('');
+  box.innerHTML=h;
+}
+function delBatch(id){
+  if(!confirm('Hapus input ini? Baris di spreadsheet juga ikut terhapus.'))return;
+  api({action:'delete',batch:id}).then(function(){toast('Terhapus','ok');loadHist();}).catch(function(e){toast('Gagal hapus: '+e.message,'bad');});
+}
+
+// ── INIT ─────────────────────────────────────────────────
+$('f-tgl').value=todayStr();
+$('f-tgl').addEventListener('change',saveDraft);
+restoreDraft();
+if(!APPS_SCRIPT_URL) banner('URL Apps Script belum diisi — app belum bisa menyimpan ke spreadsheet.','warn');
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('sw.js').catch(function(){});
+  navigator.serviceWorker.addEventListener('controllerchange',function(){});
+}
+</script>
+</body>
+</html>

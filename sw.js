@@ -1,5 +1,5 @@
 // SW Leads Jasa — network-first untuk HTML, cache-first untuk aset statis.
-const CACHE = 'leads-jasa-v2';
+const CACHE = 'leads-jasa-v3';
 const ASSETS = ['manifest.json','icon-192.png','icon-512.png'];
 
 self.addEventListener('install', function (e) {

@@ -1,13 +1,13 @@
 {
-  "name": "Leads Jasa — Input",
+  "name": "Leads Jasa",
   "short_name": "Leads Jasa",
   "description": "Catat leads harian Dengan Kode & Tanpa Kode",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#F6F6F3",
-  "theme_color": "#FFC72C",
+  "background_color": "#F5F7F5",
+  "theme_color": "#25C26E",
   "lang": "id",
   "icons": [
     { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
